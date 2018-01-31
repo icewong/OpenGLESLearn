@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5247F7F32021B5D8009DFB7C /* earth-diffuse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5247F7F22021B5D8009DFB7C /* earth-diffuse.jpg */; };
+		5247F7F62021B5E5009DFB7C /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 5247F7F42021B5E5009DFB7C /* Shader.vsh */; };
+		5247F7F72021B5E5009DFB7C /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 5247F7F52021B5E5009DFB7C /* Shader.fsh */; };
+		5247F7FB2021B605009DFB7C /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F7FA2021B605009DFB7C /* GLProgram.m */; };
+		5247F7FF2021B63C009DFB7C /* GLSensors.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F7FE2021B63C009DFB7C /* GLSensors.m */; };
+		5247F8042021B65B009DFB7C /* GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8002021B65A009DFB7C /* GLMatrix.m */; };
+		5247F8052021B65B009DFB7C /* GLFingerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8032021B65B009DFB7C /* GLFingerRotation.m */; };
+		5247F8082021B686009DFB7C /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8062021B685009DFB7C /* GLViewController.m */; };
 		638970031F6FACF000E38042 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970021F6FACF000E38042 /* main.m */; };
 		638970061F6FACF000E38042 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970051F6FACF000E38042 /* AppDelegate.m */; };
 		638970091F6FACF000E38042 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970081F6FACF000E38042 /* ViewController.m */; };
@@ -37,6 +45,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5247F7F22021B5D8009DFB7C /* earth-diffuse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "earth-diffuse.jpg"; sourceTree = "<group>"; };
+		5247F7F42021B5E5009DFB7C /* Shader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.vsh; sourceTree = "<group>"; };
+		5247F7F52021B5E5009DFB7C /* Shader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Shader.fsh; sourceTree = "<group>"; };
+		5247F7F92021B605009DFB7C /* GLProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProgram.h; sourceTree = "<group>"; };
+		5247F7FA2021B605009DFB7C /* GLProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLProgram.m; sourceTree = "<group>"; };
+		5247F7FC2021B622009DFB7C /* OSSphere.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSSphere.h; sourceTree = "<group>"; };
+		5247F7FD2021B63B009DFB7C /* GLSensors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSensors.h; sourceTree = "<group>"; };
+		5247F7FE2021B63C009DFB7C /* GLSensors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSensors.m; sourceTree = "<group>"; };
+		5247F8002021B65A009DFB7C /* GLMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMatrix.m; sourceTree = "<group>"; };
+		5247F8012021B65B009DFB7C /* GLMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMatrix.h; sourceTree = "<group>"; };
+		5247F8022021B65B009DFB7C /* GLFingerRotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFingerRotation.h; sourceTree = "<group>"; };
+		5247F8032021B65B009DFB7C /* GLFingerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFingerRotation.m; sourceTree = "<group>"; };
+		5247F8062021B685009DFB7C /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewController.m; sourceTree = "<group>"; };
+		5247F8072021B685009DFB7C /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewController.h; sourceTree = "<group>"; };
 		63896FFE1F6FACF000E38042 /* OpenGLES_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLES_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638970021F6FACF000E38042 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		638970041F6FACF000E38042 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +104,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5247F7F12021B5CD009DFB7C /* Res */ = {
+			isa = PBXGroup;
+			children = (
+				5247F7F22021B5D8009DFB7C /* earth-diffuse.jpg */,
+				5247F7F52021B5E5009DFB7C /* Shader.fsh */,
+				5247F7F42021B5E5009DFB7C /* Shader.vsh */,
+			);
+			name = Res;
+			sourceTree = "<group>";
+		};
+		5247F7F82021B5F6009DFB7C /* OpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				5247F7FD2021B63B009DFB7C /* GLSensors.h */,
+				5247F7FE2021B63C009DFB7C /* GLSensors.m */,
+				5247F7F92021B605009DFB7C /* GLProgram.h */,
+				5247F7FA2021B605009DFB7C /* GLProgram.m */,
+				5247F8022021B65B009DFB7C /* GLFingerRotation.h */,
+				5247F8032021B65B009DFB7C /* GLFingerRotation.m */,
+				5247F8012021B65B009DFB7C /* GLMatrix.h */,
+				5247F8002021B65A009DFB7C /* GLMatrix.m */,
+				5247F8072021B685009DFB7C /* GLViewController.h */,
+				5247F8062021B685009DFB7C /* GLViewController.m */,
+			);
+			name = OpenGL;
+			sourceTree = "<group>";
+		};
 		63896FF51F6FACF000E38042 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +154,9 @@
 		638970001F6FACF000E38042 /* OpenGLES_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				5247F7FC2021B622009DFB7C /* OSSphere.h */,
+				5247F7F82021B5F6009DFB7C /* OpenGL */,
+				5247F7F12021B5CD009DFB7C /* Res */,
 				638970341F6FAD4100E38042 /* fragment.glsl */,
 				638970351F6FAD4100E38042 /* vertex.glsl */,
 				638970041F6FACF000E38042 /* AppDelegate.h */,
@@ -253,11 +305,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5247F7F72021B5E5009DFB7C /* Shader.fsh in Resources */,
 				638970111F6FACF000E38042 /* LaunchScreen.storyboard in Resources */,
+				5247F7F62021B5E5009DFB7C /* Shader.vsh in Resources */,
 				638970361F6FAD4100E38042 /* fragment.glsl in Resources */,
 				6389700E1F6FACF000E38042 /* Assets.xcassets in Resources */,
 				6389700C1F6FACF000E38042 /* Main.storyboard in Resources */,
 				638970371F6FAD4100E38042 /* vertex.glsl in Resources */,
+				5247F7F32021B5D8009DFB7C /* earth-diffuse.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,8 +338,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				638970091F6FACF000E38042 /* ViewController.m in Sources */,
+				5247F8042021B65B009DFB7C /* GLMatrix.m in Sources */,
+				5247F7FB2021B605009DFB7C /* GLProgram.m in Sources */,
+				5247F8052021B65B009DFB7C /* GLFingerRotation.m in Sources */,
 				638970061F6FACF000E38042 /* AppDelegate.m in Sources */,
 				638970031F6FACF000E38042 /* main.m in Sources */,
+				5247F7FF2021B63C009DFB7C /* GLSensors.m in Sources */,
+				5247F8082021B686009DFB7C /* GLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -438,7 +498,7 @@
 				DEVELOPMENT_TEAM = 4D49NLC4WA;
 				INFOPLIST_FILE = OpenGLES_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.skylight.helio.openglesDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skylight.helio.apollo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -450,7 +510,7 @@
 				DEVELOPMENT_TEAM = 4D49NLC4WA;
 				INFOPLIST_FILE = OpenGLES_Demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.skylight.helio.openglesDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.skylight.helio.apollo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -520,6 +580,7 @@
 				6389702D1F6FACF100E38042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6389702E1F6FACF100E38042 /* Build configuration list for PBXNativeTarget "OpenGLES_DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +589,7 @@
 				638970301F6FACF100E38042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		638970311F6FACF100E38042 /* Build configuration list for PBXNativeTarget "OpenGLES_DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +598,7 @@
 				638970331F6FACF100E38042 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
