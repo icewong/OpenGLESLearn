@@ -11,6 +11,8 @@
 #import <CoreMotion/CoreMotion.h>
 #import "GLFingerRotation.h"
 #import "GLMatrix.h"
+#import "GLUtil.h"
+
 
 #define MAX_OVERTURE 95.0
 #define MIN_OVERTURE 25.0
@@ -49,6 +51,12 @@ typedef NS_ENUM(NSUInteger, GLModelTextureRotateType) {
 
 
 @interface GLViewController ()
+{
+    GLuint mTextureIdOutput;
+    GLuint mFrameBufferId;
+    GLuint mRenderBufferId;
+    GLint mOriginalFrameBufferId;
+}
 @property (strong, nonatomic) EAGLContext *context;
 @property (strong, nonatomic) GLProgram *program;
 @property (strong, nonatomic) NSMutableArray *currentTouches;
@@ -100,7 +108,7 @@ typedef NS_ENUM(NSUInteger, GLModelTextureRotateType) {
     
     [self addGesture];
     [self setupGL];
-    //[self startDeviceMotion];
+    [self startDeviceMotion];
     
 }
 
@@ -205,9 +213,19 @@ typedef NS_ENUM(NSUInteger, GLModelTextureRotateType) {
 }
 
 
+- (void)refreshTexture
+{
+    [self texture:[UIImage imageNamed:@"earth-diffuse.jpg"]];
+    
+//    glActiveTexture(GL_TEXTURE1);
+//    //载入纹理
+//    glBindTexture(GL_TEXTURE_2D, _textureID);
+//    //为当前程序对象指定Uniform变量的值,参数1代表使用的新值（GL_TEXTURE1）
+//    glUniform1i(uniforms[UNIFORM_UV], 1);;
+//    //[self createFrameBufferWidth:3840 height:1920];
+}
 
-
-- (void)refreshTexture {
+- (void)refreshTexture11 {
     CVReturn err;
     CVPixelBufferRef pixelBuffer =[self pixelBufferFromCGImage:[UIImage imageNamed:@"earth-diffuse.jpg"].CGImage];
     if (pixelBuffer != nil) {
@@ -357,6 +375,7 @@ int esGenSphere(int numSlices, float radius, float **vertices,
 }
 
 - (void)setupBuffers {
+    
     GLfloat *vVertices = NULL;
     GLfloat *vTextCoord = NULL;
     GLushort *indices = NULL;
@@ -624,10 +643,6 @@ int esGenSphere(int numSlices, float radius, float **vertices,
 }
 
 
-
-
-
-
 - (void)bindPositionLocation:(GLint)position_location
         textureCoordLocation:(GLint)textureCoordLocation
            textureRotateType:(GLModelTextureRotateType)textureRotateType
@@ -677,4 +692,88 @@ int esGenSphere(int numSlices, float radius, float **vertices,
     self.videoTextureCache = nil;
 }
 
+
+-(void)createFrameBufferWidth:(int)w height:(int)h
+{
+    if (mTextureIdOutput != 0) {
+        glDeleteTextures(1, &mTextureIdOutput);
+    }
+    
+    if (mRenderBufferId != 0) {
+        glDeleteRenderbuffers(1, &mRenderBufferId);
+    }
+    
+    if (mFrameBufferId != 0) {
+        glDeleteFramebuffers(1, &mFrameBufferId);
+    }
+    
+    
+    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &mOriginalFrameBufferId);
+    
+    //
+    
+    glGenFramebuffers(1, &mFrameBufferId);
+    glBindFramebuffer(GL_FRAMEBUFFER, mFrameBufferId);
+    [GLUtil glCheck:@"Multi Fish Eye frame buffer"];
+    
+    // renderer buffer
+    glGenRenderbuffers(1, &mRenderBufferId);
+    glBindRenderbuffer(GL_RENDERBUFFER, mRenderBufferId);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, w, h);
+    [GLUtil glCheck:@"Multi Fish Eye renderer buffer"];
+    
+    glActiveTexture(GL_TEXTURE0);
+    glGenTextures(1, &mTextureIdOutput);
+    glBindTexture(GL_TEXTURE_2D, mTextureIdOutput);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, w, h, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
+    [GLUtil glCheck:@"Multi Fish Eye texture"];
+    
+    // attach
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, mTextureIdOutput, 0);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, mRenderBufferId);
+    [GLUtil glCheck:@"Multi Fish Eye attach"];
+    
+    // check
+    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (status != GL_FRAMEBUFFER_COMPLETE) {
+        NSLog(@"Framebuffer is not complete: %d", status);
+    }
+    
+    glBindFramebuffer(GL_FRAMEBUFFER, mOriginalFrameBufferId);
+    [GLUtil glCheck:@"Multi Fish Eye restore"];
+}
+
+-(void) texture:(UIImage*)image{
+    
+    if (image == nil) {
+        return;
+    }
+    //dispatch_sync(dispatch_get_main_queue(), ^{
+        // Bind to the texture in OpenGL
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, self.vertexTexCoordID);
+        
+        
+        // Set filtering
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        
+        // for not mipmap
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+        
+        // Load the bitmap into the bound texture.
+        [GLUtil texImage2D:image];
+        glUniform1i(uniforms[UNIFORM_Y], 1);
+        //glUniform1i(self.program.mTextureUniformHandle[0], 1);
+        
+        GLuint width = (GLuint)CGImageGetWidth(image.CGImage);
+        GLuint height = (GLuint)CGImageGetHeight(image.CGImage);
+        //[self.sizeContext updateTextureWidth:width height:height];
+    //});
+}
 @end

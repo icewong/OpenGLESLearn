@@ -15,6 +15,12 @@
 		5247F8042021B65B009DFB7C /* GLMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8002021B65A009DFB7C /* GLMatrix.m */; };
 		5247F8052021B65B009DFB7C /* GLFingerRotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8032021B65B009DFB7C /* GLFingerRotation.m */; };
 		5247F8082021B686009DFB7C /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8062021B685009DFB7C /* GLViewController.m */; };
+		5247F80E2021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap_fbo.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F8092021B7DF009DFB7C /* per_pixel_fragment_shader_bitmap_fbo.glsl */; };
+		5247F80F2021B7E0009DFB7C /* per_pixel_fragment_shader_yuv420p.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F80A2021B7DF009DFB7C /* per_pixel_fragment_shader_yuv420p.glsl */; };
+		5247F8102021B7E0009DFB7C /* per_pixel_fragment_shader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F80B2021B7E0009DFB7C /* per_pixel_fragment_shader.glsl */; };
+		5247F8112021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F80C2021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl */; };
+		5247F8122021B7E0009DFB7C /* per_pixel_vertex_shader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F80D2021B7E0009DFB7C /* per_pixel_vertex_shader.glsl */; };
+		5247F8152021B937009DFB7C /* GLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8142021B936009DFB7C /* GLUtil.m */; };
 		638970031F6FACF000E38042 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970021F6FACF000E38042 /* main.m */; };
 		638970061F6FACF000E38042 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970051F6FACF000E38042 /* AppDelegate.m */; };
 		638970091F6FACF000E38042 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970081F6FACF000E38042 /* ViewController.m */; };
@@ -59,6 +65,13 @@
 		5247F8032021B65B009DFB7C /* GLFingerRotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFingerRotation.m; sourceTree = "<group>"; };
 		5247F8062021B685009DFB7C /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewController.m; sourceTree = "<group>"; };
 		5247F8072021B685009DFB7C /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewController.h; sourceTree = "<group>"; };
+		5247F8092021B7DF009DFB7C /* per_pixel_fragment_shader_bitmap_fbo.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = per_pixel_fragment_shader_bitmap_fbo.glsl; sourceTree = "<group>"; };
+		5247F80A2021B7DF009DFB7C /* per_pixel_fragment_shader_yuv420p.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = per_pixel_fragment_shader_yuv420p.glsl; sourceTree = "<group>"; };
+		5247F80B2021B7E0009DFB7C /* per_pixel_fragment_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = per_pixel_fragment_shader.glsl; sourceTree = "<group>"; };
+		5247F80C2021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = per_pixel_fragment_shader_bitmap.glsl; sourceTree = "<group>"; };
+		5247F80D2021B7E0009DFB7C /* per_pixel_vertex_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = per_pixel_vertex_shader.glsl; sourceTree = "<group>"; };
+		5247F8132021B936009DFB7C /* GLUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLUtil.h; sourceTree = "<group>"; };
+		5247F8142021B936009DFB7C /* GLUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLUtil.m; sourceTree = "<group>"; };
 		63896FFE1F6FACF000E38042 /* OpenGLES_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLES_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638970021F6FACF000E38042 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		638970041F6FACF000E38042 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -107,6 +120,13 @@
 		5247F7F12021B5CD009DFB7C /* Res */ = {
 			isa = PBXGroup;
 			children = (
+				5247F8092021B7DF009DFB7C /* per_pixel_fragment_shader_bitmap_fbo.glsl */,
+				5247F80C2021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl */,
+				5247F80A2021B7DF009DFB7C /* per_pixel_fragment_shader_yuv420p.glsl */,
+				5247F80B2021B7E0009DFB7C /* per_pixel_fragment_shader.glsl */,
+				5247F80D2021B7E0009DFB7C /* per_pixel_vertex_shader.glsl */,
+				638970341F6FAD4100E38042 /* fragment.glsl */,
+				638970351F6FAD4100E38042 /* vertex.glsl */,
 				5247F7F22021B5D8009DFB7C /* earth-diffuse.jpg */,
 				5247F7F52021B5E5009DFB7C /* Shader.fsh */,
 				5247F7F42021B5E5009DFB7C /* Shader.vsh */,
@@ -127,6 +147,8 @@
 				5247F8002021B65A009DFB7C /* GLMatrix.m */,
 				5247F8072021B685009DFB7C /* GLViewController.h */,
 				5247F8062021B685009DFB7C /* GLViewController.m */,
+				5247F8132021B936009DFB7C /* GLUtil.h */,
+				5247F8142021B936009DFB7C /* GLUtil.m */,
 			);
 			name = OpenGL;
 			sourceTree = "<group>";
@@ -157,8 +179,6 @@
 				5247F7FC2021B622009DFB7C /* OSSphere.h */,
 				5247F7F82021B5F6009DFB7C /* OpenGL */,
 				5247F7F12021B5CD009DFB7C /* Res */,
-				638970341F6FAD4100E38042 /* fragment.glsl */,
-				638970351F6FAD4100E38042 /* vertex.glsl */,
 				638970041F6FACF000E38042 /* AppDelegate.h */,
 				638970051F6FACF000E38042 /* AppDelegate.m */,
 				638970071F6FACF000E38042 /* ViewController.h */,
@@ -305,13 +325,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5247F80F2021B7E0009DFB7C /* per_pixel_fragment_shader_yuv420p.glsl in Resources */,
 				5247F7F72021B5E5009DFB7C /* Shader.fsh in Resources */,
 				638970111F6FACF000E38042 /* LaunchScreen.storyboard in Resources */,
+				5247F8102021B7E0009DFB7C /* per_pixel_fragment_shader.glsl in Resources */,
 				5247F7F62021B5E5009DFB7C /* Shader.vsh in Resources */,
 				638970361F6FAD4100E38042 /* fragment.glsl in Resources */,
+				5247F8112021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl in Resources */,
 				6389700E1F6FACF000E38042 /* Assets.xcassets in Resources */,
+				5247F80E2021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap_fbo.glsl in Resources */,
 				6389700C1F6FACF000E38042 /* Main.storyboard in Resources */,
 				638970371F6FAD4100E38042 /* vertex.glsl in Resources */,
+				5247F8122021B7E0009DFB7C /* per_pixel_vertex_shader.glsl in Resources */,
 				5247F7F32021B5D8009DFB7C /* earth-diffuse.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +364,7 @@
 			files = (
 				638970091F6FACF000E38042 /* ViewController.m in Sources */,
 				5247F8042021B65B009DFB7C /* GLMatrix.m in Sources */,
+				5247F8152021B937009DFB7C /* GLUtil.m in Sources */,
 				5247F7FB2021B605009DFB7C /* GLProgram.m in Sources */,
 				5247F8052021B65B009DFB7C /* GLFingerRotation.m in Sources */,
 				638970061F6FACF000E38042 /* AppDelegate.m in Sources */,
