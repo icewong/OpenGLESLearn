@@ -21,6 +21,8 @@
 		5247F8112021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F80C2021B7E0009DFB7C /* per_pixel_fragment_shader_bitmap.glsl */; };
 		5247F8122021B7E0009DFB7C /* per_pixel_vertex_shader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 5247F80D2021B7E0009DFB7C /* per_pixel_vertex_shader.glsl */; };
 		5247F8152021B937009DFB7C /* GLUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 5247F8142021B936009DFB7C /* GLUtil.m */; };
+		5295954E2024353A00066567 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295954D2024353A00066567 /* TestViewController.m */; };
+		5295955120243C4300066567 /* GuestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5295955020243C4300066567 /* GuestureViewController.m */; };
 		638970031F6FACF000E38042 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970021F6FACF000E38042 /* main.m */; };
 		638970061F6FACF000E38042 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970051F6FACF000E38042 /* AppDelegate.m */; };
 		638970091F6FACF000E38042 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638970081F6FACF000E38042 /* ViewController.m */; };
@@ -72,6 +74,10 @@
 		5247F80D2021B7E0009DFB7C /* per_pixel_vertex_shader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = per_pixel_vertex_shader.glsl; sourceTree = "<group>"; };
 		5247F8132021B936009DFB7C /* GLUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLUtil.h; sourceTree = "<group>"; };
 		5247F8142021B936009DFB7C /* GLUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLUtil.m; sourceTree = "<group>"; };
+		5295954C2024353A00066567 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		5295954D2024353A00066567 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		5295954F20243C4300066567 /* GuestureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuestureViewController.h; sourceTree = "<group>"; };
+		5295955020243C4300066567 /* GuestureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuestureViewController.m; sourceTree = "<group>"; };
 		63896FFE1F6FACF000E38042 /* OpenGLES_Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenGLES_Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638970021F6FACF000E38042 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		638970041F6FACF000E38042 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 				5247F8002021B65A009DFB7C /* GLMatrix.m */,
 				5247F8072021B685009DFB7C /* GLViewController.h */,
 				5247F8062021B685009DFB7C /* GLViewController.m */,
+				5295954F20243C4300066567 /* GuestureViewController.h */,
+				5295955020243C4300066567 /* GuestureViewController.m */,
 				5247F8132021B936009DFB7C /* GLUtil.h */,
 				5247F8142021B936009DFB7C /* GLUtil.m */,
 			);
@@ -181,6 +189,8 @@
 				5247F7F12021B5CD009DFB7C /* Res */,
 				638970041F6FACF000E38042 /* AppDelegate.h */,
 				638970051F6FACF000E38042 /* AppDelegate.m */,
+				5295954C2024353A00066567 /* TestViewController.h */,
+				5295954D2024353A00066567 /* TestViewController.m */,
 				638970071F6FACF000E38042 /* ViewController.h */,
 				638970081F6FACF000E38042 /* ViewController.m */,
 				6389700A1F6FACF000E38042 /* Main.storyboard */,
@@ -366,9 +376,11 @@
 				5247F8042021B65B009DFB7C /* GLMatrix.m in Sources */,
 				5247F8152021B937009DFB7C /* GLUtil.m in Sources */,
 				5247F7FB2021B605009DFB7C /* GLProgram.m in Sources */,
+				5295954E2024353A00066567 /* TestViewController.m in Sources */,
 				5247F8052021B65B009DFB7C /* GLFingerRotation.m in Sources */,
 				638970061F6FACF000E38042 /* AppDelegate.m in Sources */,
 				638970031F6FACF000E38042 /* main.m in Sources */,
+				5295955120243C4300066567 /* GuestureViewController.m in Sources */,
 				5247F7FF2021B63C009DFB7C /* GLSensors.m in Sources */,
 				5247F8082021B686009DFB7C /* GLViewController.m in Sources */,
 			);

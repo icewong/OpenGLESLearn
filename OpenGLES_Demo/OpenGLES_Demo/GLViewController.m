@@ -190,8 +190,11 @@ typedef NS_ENUM(NSUInteger, GLModelTextureRotateType) {
 #pragma mark - GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+    
+    //glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     [self refreshTexture];
     
+
     glClear(GL_COLOR_BUFFER_BIT);
     
 //    GLKMatrix4 matrix;
@@ -467,8 +470,10 @@ int esGenSphere(int numSlices, float radius, float **vertices,
     
     self.motionManager = [[CMMotionManager alloc] init];
     self.referenceAttitude = nil;
-    self.motionManager.deviceMotionUpdateInterval = 1.0 / 60.0;
-    self.motionManager.gyroUpdateInterval = 1.0f / 60;
+    self.motionManager.deviceMotionUpdateInterval = 1.0 / 30.0;
+    self.motionManager.gyroUpdateInterval = 1.0f / 30;
+    NSOperationQueue* motionQueue = [[NSOperationQueue alloc] init];
+    [self.motionManager setDeviceMotionUpdateInterval:1.0f / 30];
     self.motionManager.showsDeviceMovementDisplay = YES;
     
     [self.motionManager startDeviceMotionUpdatesUsingReferenceFrame:CMAttitudeReferenceFrameXArbitraryCorrectedZVertical];
@@ -752,28 +757,29 @@ int esGenSphere(int numSlices, float radius, float **vertices,
     if (image == nil) {
         return;
     }
+     [GLUtil texImage2D:image];
     //dispatch_sync(dispatch_get_main_queue(), ^{
         // Bind to the texture in OpenGL
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, self.vertexTexCoordID);
         
         
-        // Set filtering
+//        // Set filtering
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-        
-        // for not mipmap
+//
+//        // for not mipmap
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-        
-        // Load the bitmap into the bound texture.
-        [GLUtil texImage2D:image];
-        glUniform1i(uniforms[UNIFORM_Y], 1);
-        //glUniform1i(self.program.mTextureUniformHandle[0], 1);
-        
-        GLuint width = (GLuint)CGImageGetWidth(image.CGImage);
-        GLuint height = (GLuint)CGImageGetHeight(image.CGImage);
-        //[self.sizeContext updateTextureWidth:width height:height];
-    //});
+//
+//        // Load the bitmap into the bound texture.
+//        [GLUtil texImage2D:image];
+//        //glUniform1i(uniforms[UNIFORM_Y], 1);
+//        //glUniform1i(self.program.mTextureUniformHandle[0], 1);
+//
+//        GLuint width = (GLuint)CGImageGetWidth(image.CGImage);
+//        GLuint height = (GLuint)CGImageGetHeight(image.CGImage);
+//        //[self.sizeContext updateTextureWidth:width height:height];
+//    //});
 }
 @end

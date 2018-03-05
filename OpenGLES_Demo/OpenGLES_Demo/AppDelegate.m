@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "GLViewController.h"
+#import "TestViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,8 +17,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    GLViewController *mainVC = [[GLViewController alloc]init];
-    self.window.rootViewController = mainVC;
+    TestViewController *mainVC = [[TestViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:mainVC];
+    self.window.rootViewController = nav;
     return YES;
 }
 
